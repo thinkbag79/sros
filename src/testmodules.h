@@ -15,8 +15,7 @@ protected:
     {
         if (msg.type == MessageType::TIMER_EVENT)
         {
-            TimerData *timerData = static_cast<TimerData *>(msg.data);
-            std::cout << "ModuleA timer event, ID: " << timerData->timerID << std::endl;
+            std::cout << "ModuleA timer event, ID: " << std::endl;
         }
     }
 };
@@ -36,8 +35,7 @@ protected:
     {
         if (msg.type == MessageType::TIMER_EVENT)
         {
-            TimerData *timerData = static_cast<TimerData *>(msg.data);
-            std::cout << "ModuleB timer event, ID: " << timerData->timerID << std::endl;
+            std::cout << "ModuleB timer event, ID: " << std::endl;
         }
     }
 };
@@ -57,8 +55,7 @@ protected:
     {
         if (msg.type == MessageType::TIMER_EVENT)
         {
-            TimerData *timerData = static_cast<TimerData *>(msg.data);
-            std::cout << "ModuleC timer event, ID: " << timerData->timerID << std::endl;
+            std::cout << "ModuleC timer event, ID: " << std::endl;
         }
     }
 };

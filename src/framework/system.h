@@ -3,7 +3,7 @@
 
 #include <map>
 #include <cstddef>
-#include "message_module_type.h"
+#include "../message_module_type.h"
 
 class Module;
 class Message;

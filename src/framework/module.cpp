@@ -1,7 +1,6 @@
 #include <chrono>
 
 #include "module.h"
-#include "message_module_type.h"
 #include "system.h"
 
 void *Module::runHelper(void *context)
