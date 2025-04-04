@@ -20,7 +20,7 @@ public:
 
 protected:
     Module() : running(true), system(nullptr), threadPriority(0), stackSize(0) {}
-    void add_timer(MessageType messageType, int interval);
+    void add_timer(MessageType messageType, int milli_interval);
     void remove_timer(MessageType messageType);
     void sendMessage(ModuleType moduleType, const Message &msg);
     

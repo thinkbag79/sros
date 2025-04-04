@@ -80,9 +80,9 @@ void Module::setThreadParam(int priority, size_t stack)
     stackSize = stack;
 }
 
-void Module::add_timer(MessageType messageType, int interval)
+void Module::add_timer(MessageType messageType, int milli_interval)
 {
-    timerIntervals[messageType] = interval;
+    timerIntervals[messageType] = milli_interval;
     lastTimer[messageType] = std::chrono::steady_clock::now();
 }
 
