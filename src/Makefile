@@ -3,4 +3,4 @@ all:
 	-Wall \
 	-I. \
 	framework/module.cpp framework/system.cpp \
-	application/main.cpp 
+	application/testmain.cpp 

@@ -5,7 +5,7 @@
 #include <mutex>
 #include <condition_variable>
 
-#include "application/message_module_type.h"
+#include "application/messagetype.h"
 
 struct Message
 {
