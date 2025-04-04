@@ -16,7 +16,7 @@ protected:
     {
         printf("module A stop\n");
     }
-    void processMessage(const Message &msg) override
+    void onMessasge(const Message &msg) override
     {
         if (msg.type == MessageType::TIMER_1SEC)
         {
@@ -49,7 +49,7 @@ protected:
         printf("module B stop\n");
     }
 
-    void processMessage(const Message &msg) override
+    void onMessasge(const Message &msg) override
     {
         if (msg.type == MessageType::TIMER_1SEC)
         {
@@ -79,7 +79,7 @@ protected:
         printf("module C stop\n");
     }
 
-    void processMessage(const Message &msg) override
+    void onMessasge(const Message &msg) override
     {
         if (msg.type == MessageType::TIMER_5SEC)
         {

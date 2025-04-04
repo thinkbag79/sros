@@ -19,7 +19,7 @@ void *Module::run()
 
         if (queue.pop(msg))
         {
-            processMessage(msg);
+            onMessasge(msg);
 
             if (msg.data != nullptr)
                 delete[] static_cast<char *>(msg.data);

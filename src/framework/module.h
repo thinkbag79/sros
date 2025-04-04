@@ -26,7 +26,7 @@ protected:
     
     virtual void onStart() = 0;
     virtual void onStop() = 0;
-    virtual void processMessage(const Message &msg) = 0;
+    virtual void onMessasge(const Message &msg) = 0;
 
 private:
     MessageQueue queue;
