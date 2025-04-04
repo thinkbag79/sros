@@ -20,8 +20,8 @@ public:
 
 protected:
     Module() : running(true), system(nullptr), threadPriority(0), stackSize(0) {}
-    void add_timer(int timerID, int interval);
-    void remove_timer(int timerID);
+    void add_timer(MessageType messageType, int interval);
+    void remove_timer(MessageType messageType);
     void sendMessage(ModuleType moduleType, const Message &msg);
     
     virtual void onStart() = 0;
@@ -33,8 +33,8 @@ private:
     pthread_t worker;
     bool running;
     System *system;
-    std::map<int, int> timerIntervals;
-    std::map<int, std::chrono::steady_clock::time_point> lastTimer;
+    std::map<MessageType, int> timerIntervals;
+    std::map<MessageType, std::chrono::steady_clock::time_point> lastTimer;
     int threadPriority;
     size_t stackSize;
 

@@ -15,9 +15,4 @@ enum class MessageType
     CV_MAT,
 };
 
-struct TimerData
-{
-    int timerID;
-};
-
 #endif /* _MESSAGE_MODULE_TYPE_H_ */

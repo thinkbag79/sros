@@ -20,17 +20,18 @@ void *Module::run()
         if (queue.pop(msg))
         {
             processMessage(msg);
-            delete[] static_cast<char *>(msg.data);
+
+            if (msg.data != nullptr)
+                delete[] static_cast<char *>(msg.data);
         }
 
         auto now = std::chrono::steady_clock::now();
-        for (auto &[timerID, interval] : timerIntervals)
+        for (auto &[messageType, interval] : timerIntervals)
         {
-            if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastTimer[timerID]).count() >= interval)
+            if (std::chrono::duration_cast<std::chrono::milliseconds>(now - lastTimer[messageType]).count() >= interval)
             {
-                lastTimer[timerID] = now;
-                TimerData *timerData = new TimerData{timerID};
-                Message timerMsg{MessageType::TIMER_EVENT, timerData, sizeof(TimerData)};
+                lastTimer[messageType] = now;
+                Message timerMsg{messageType, nullptr, 0};
                 queue.push(timerMsg);
             }
         }
@@ -80,16 +81,16 @@ void Module::setThreadParam(int priority, size_t stack)
     stackSize = stack;
 }
 
-void Module::add_timer(int timerID, int interval)
+void Module::add_timer(MessageType messageType, int interval)
 {
-    timerIntervals[timerID] = interval;
-    lastTimer[timerID] = std::chrono::steady_clock::now();
+    timerIntervals[messageType] = interval;
+    lastTimer[messageType] = std::chrono::steady_clock::now();
 }
 
-void Module::remove_timer(int timerID)
+void Module::remove_timer(MessageType messageType)
 {
-    timerIntervals.erase(timerID);
-    lastTimer.erase(timerID);
+    timerIntervals.erase(messageType);
+    lastTimer.erase(messageType);
 }
 
 void Module::sendMessage(ModuleType moduleType, const Message &msg)
