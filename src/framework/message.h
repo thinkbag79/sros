@@ -32,7 +32,8 @@ public:
     bool pop(Message &msg)
     {
         std::unique_lock<std::mutex> lock(mutex);
-        if (queue.empty()) return false; //cv.wait(lock, [this]{ return !queue.empty(); });
+        //cv.wait(lock, [this]{ return !queue.empty(); });
+        if (queue.empty()) return false;
         msg = queue.front();
         queue.pop();
         return true;

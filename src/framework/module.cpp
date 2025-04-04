@@ -1,4 +1,5 @@
 #include <chrono>
+#include <unistd.h>
 
 #include "module.h"
 #include "system.h"
@@ -35,7 +36,7 @@ void *Module::run()
             }
         }
 
-        // usleep(1);
+        usleep(10);
     }
 
     onStop();

@@ -10,9 +10,11 @@ enum class ModuleType
 
 enum class MessageType
 {
-    TIMER_EVENT,
-    INT_ARRAY,
-    CV_MAT,
+    TIMER_1SEC,
+    TIMER_5SEC,
+    MSG_COW,
+    MSG_RABBIT,
+    MSG_DOG,
 };
 
 #endif /* _MESSAGE_MODULE_TYPE_H_ */
