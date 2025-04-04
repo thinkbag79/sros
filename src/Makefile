@@ -1,2 +1,6 @@
 all:
-	g++ -Wall main.cpp framework/module.cpp framework/system.cpp -o ../rmp_start
+	g++ -o ../rmp_start \
+	-Wall \
+	-I. \
+	framework/module.cpp framework/system.cpp \
+	application/main.cpp 

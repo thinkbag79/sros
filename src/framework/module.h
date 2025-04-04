@@ -5,7 +5,7 @@
 #include <map>
 
 #include "message.h"
-#include "../message_module_type.h"
+#include "../application/message_module_type.h"
 
 class System;
 
