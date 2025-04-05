@@ -35,8 +35,6 @@ void *Module::run()
                 queue.push(timerMsg);
             }
         }
-
-        usleep(10);
     }
 
     onStop();
