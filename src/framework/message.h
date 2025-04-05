@@ -26,14 +26,17 @@ public:
     {
         std::lock_guard<std::mutex> lock(mutex);
         queue.push(msg);
-        //cv.notify_one();
+        cv.notify_one();
     }
 
     bool pop(Message &msg)
     {
         std::unique_lock<std::mutex> lock(mutex);
-        //cv.wait(lock, [this]{ return !queue.empty(); });
-        if (queue.empty()) return false;
+        if (!cv.wait_for(lock, std::chrono::milliseconds(1), [this]
+                         { return !queue.empty(); }))
+        {
+            return false;
+        }
         msg = queue.front();
         queue.pop();
         return true;
